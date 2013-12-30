@@ -454,6 +454,12 @@ static struct l2_level l2_freq_tbl_8960[] = {
 	[16] = { { 1242000, HFPLL, 1, 0, 0x2E }, 1150000, 1150000, 6 },
 	[17] = { { 1296000, HFPLL, 1, 0, 0x30 }, 1150000, 1150000, 6 },
 	[18] = { { 1350000, HFPLL, 1, 0, 0x32 }, 1150000, 1150000, 6 },
+// Overclock
+#ifdef CONFIG_GT_L2_OC
+	[19] = { { 1404000, HFPLL, 1, 0, 0x34 }, 1150000, 1150000, 6 },
+	[20] = { { 1458000, HFPLL, 1, 0, 0x36 }, 1150000, 1150000, 6 },
+	[21] = { { 1512000, HFPLL, 1, 0, 0x38 }, 1150000, 1150000, 6 },
+#endif
 };
 
 static struct acpu_level acpu_freq_tbl_8960_kraitv2_slow[] = {
@@ -506,9 +512,11 @@ static struct acpu_level acpu_freq_tbl_8960_kraitv2_nom[] = {
 	{ 1, {  1458000, HFPLL, 1, 0, 0x36 }, L2(18), 1187500 },
 	{ 1, {  1512000, HFPLL, 1, 0, 0x38 }, L2(18), 1200000 },
 // Overclock
+#ifdef CONFIG_GT_CPU_OC
 	{ 1, {  1600000, HFPLL, 1, 0, 0x40 }, L2(18), 1237500 },
 	{ 1, {  1700000, HFPLL, 1, 0, 0x42 }, L2(18), 1287500 },
         { 1, {  1800000, HFPLL, 1, 0, 0x44 }, L2(18), 1317500 },
+#endif
 	{ 0, { 0 } }
 };
 
@@ -536,9 +544,11 @@ static struct acpu_level acpu_freq_tbl_8960_kraitv2_fast[] = {
 	{ 1, {  1458000, HFPLL, 1, 0, 0x36 }, L2(18), 1137500 },
 	{ 1, {  1512000, HFPLL, 1, 0, 0x38 }, L2(18), 1150000 },
 // Overclock
+#ifdef CONFIG_GT_CPU_OC
 	{ 1, {  1600000, HFPLL, 1, 0, 0x40 }, L2(18), 1187500 },
 	{ 1, {  1700000, HFPLL, 1, 0, 0x42 }, L2(18), 1237500 },
         { 1, {  1800000, HFPLL, 1, 0, 0x44 }, L2(18), 1267500 },
+#endif
 	{ 0, { 0 } }
 };
 /* LGE_CHANGE support factory process without battery, taehung.kim@lge.com

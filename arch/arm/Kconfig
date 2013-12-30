@@ -2106,6 +2106,10 @@ source "drivers/cpuidle/Kconfig"
 
 endmenu
 
+menu "GameTheory's OC"
+source "gt/Kconfig"
+endmenu
+
 config CPU_FREQ_MSM
         bool
         depends on CPU_FREQ && ARCH_MSM
